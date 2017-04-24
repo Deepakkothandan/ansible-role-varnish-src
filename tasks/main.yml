@@ -1,0 +1,15 @@
+---
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- include: install_dependencies.yml
+
+- include: download_varnish.yml
+
+- include: install_varnish.yml
+
+- include: install_varnish_modules.yml
+  when: "{{ enable_varnish_modules }}"
+
+- include: configure_varnish.yml

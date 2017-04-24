@@ -1,0 +1,21 @@
+---
+
+- name: download varnish modules from github
+  git:
+    repo: 'https://github.com/varnish/varnish-modules.git'
+    dest: "{{ varnish_download_location }}/varnish_modules"
+    version: "{{ varnish_modules_version }}"
+    accept_hostkey: yes
+
+- name: Install varnish modules from source
+  shell: "{{ item }}"
+  args:
+    chdir: "{{ varnish_download_location }}/varnish_modules"
+  become: yes
+  with_items:
+    - ./bootstrap
+    - "./configure VARNISHSRC={{ varnish_download_location }}/varnish-{{ varnish_version }}"
+    - make
+    - make install
+  tags:
+    - skip_ansible_lint

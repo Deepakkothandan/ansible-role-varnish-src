@@ -1,0 +1,19 @@
+---
+
+varnish_sysvinit_config_path: /etc/default
+varnish_systemd_config_path: /etc/systemd/system
+
+dependency_packages:
+    - automake
+    - autotools-dev
+    - libedit-dev
+    - libjemalloc-dev
+    - libncurses-dev
+    - libpcre3-dev
+    - libtool
+    - pkg-config
+    - python-docutils
+    - python-sphinx
+    - graphviz
+    - git
+    - libtool

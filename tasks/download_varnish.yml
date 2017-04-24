@@ -1,0 +1,34 @@
+---
+
+- name: ensure varnish download location exists
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+  with_items:
+    - "{{ varnish_download_location }}"
+    - "{{ varnish_download_location }}/varnish-{{ varnish_version }}"
+    - "{{ varnish_config_path }}"
+
+- name: Check if required varnish version is available
+  stat:
+    path: "{{ varnish_download_location }}/varnish-{{ varnish_version }}.tar.gz"
+  register: varnish_downloaded
+
+- name: download varnish
+  get_url:
+    url: "http://repo.varnish-cache.org/source/varnish-{{ varnish_version }}.tar.gz"
+    dest: "{{ varnish_download_location }}/varnish-{{ varnish_version }}.tar.gz"
+    owner: root
+    group: root
+  when: not varnish_downloaded.stat.exists
+
+- name: unarchive varnish
+  unarchive:
+    src: "{{ varnish_download_location }}/varnish-{{ varnish_version }}.tar.gz"
+    dest: "{{ varnish_download_location }}"
+    owner: root
+    group: root
+    copy: no
+  when: not varnish_downloaded.stat.exists

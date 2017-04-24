@@ -1,0 +1,7 @@
+---
+# handlers file for varnish-src
+- name: reload systemd
+  command: systemctl daemon-reload
+
+- name: restart varnish
+  service: name=varnish state=restarted

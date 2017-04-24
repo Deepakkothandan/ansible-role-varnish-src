@@ -1,0 +1,16 @@
+---
+
+dependency_packages:
+  - autoconf
+  - automake
+  - jemalloc-devel
+  - libedit-devel
+  - libtool
+  - ncurses-devel
+  - pcre-devel
+  - pkgconfig
+  - python-docutils
+  - python-sphinx
+  - graphviz
+
+varnish_sysvinit_config_path: /etc/sysconfig

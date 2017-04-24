@@ -1,0 +1,15 @@
+---
+
+- name: Install varnish from source
+  shell: "{{ item }}"
+  args:
+    chdir: "{{ varnish_download_location }}/varnish-{{ varnish_version }}"
+  become: yes
+  with_items:
+    - ./autogen.sh
+    - ./configure
+    - make
+    - make install
+    - ldconfig
+  tags:
+    - skip_ansible_lint
