@@ -11,6 +11,7 @@
   shell: "{{ item }}"
   args:
     chdir: "{{ varnish_download_location }}/varnish_modules"
+    creates: /usr/local/lib/varnish/vmods/libvmod_header.so
   become: yes
   with_items:
     - ./bootstrap

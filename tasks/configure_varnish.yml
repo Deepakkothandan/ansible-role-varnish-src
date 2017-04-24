@@ -36,6 +36,17 @@
     (ansible_os_family == 'RedHat' and ansible_distribution_major_version|int >= 7) or
     (ansible_os_family == 'Debian' and ansible_distribution_release == "xenial")
 
+- name: Copy Varnish Reload vcl script.
+  template:
+    src: reload-vcl
+    dest: /usr/share/varnish/reload-vcl
+    owner: root
+    group: root
+    mode: 0755
+  when: >
+    (ansible_os_family == 'Debian') and
+    (ansible_distribution_release == "jessie" or ansible_distribution_release == "xenial")
+
 - name: Ensure Varnish config path exists.
   file:
     path: "{{ varnish_config_path }}"

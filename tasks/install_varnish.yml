@@ -4,12 +4,20 @@
   shell: "{{ item }}"
   args:
     chdir: "{{ varnish_download_location }}/varnish-{{ varnish_version }}"
+    creates: /usr/local/sbin/varnishd
   become: yes
   with_items:
     - ./autogen.sh
     - ./configure
     - make
     - make install
-    - ldconfig
   tags:
     - skip_ansible_lint
+  register: varnish_compiled
+
+- name: run ldconfig to create necessary links
+  shell: ldconfig
+  become: yes
+  tags:
+    - skip_ansible_lint
+  when: varnish_compiled.changed

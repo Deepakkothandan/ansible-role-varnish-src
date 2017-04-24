@@ -10,6 +10,7 @@
     - "{{ varnish_download_location }}"
     - "{{ varnish_download_location }}/varnish-{{ varnish_version }}"
     - "{{ varnish_config_path }}"
+    - /usr/share/varnish
 
 - name: Check if required varnish version is available
   stat:

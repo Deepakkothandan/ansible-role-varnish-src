@@ -10,6 +10,6 @@
 - include: install_varnish.yml
 
 - include: install_varnish_modules.yml
-  when: "{{ enable_varnish_modules }}"
+  when: enable_varnish_modules
 
 - include: configure_varnish.yml
