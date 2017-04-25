@@ -1,6 +1,5 @@
 sudo: required
-env:
-  - distro: ubuntu1604
+language: python
 services:
   - docker
 before_install:
@@ -8,6 +7,6 @@ before_install:
   - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-engine
 install:
   - pip install molecule
-  - pip install testinfra docker ansible
+  - pip install -U testinfra docker ansible
 script:
   - molecule test

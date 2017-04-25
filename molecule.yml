@@ -9,8 +9,10 @@ molecule:
   test:
     sequence:
       - destroy
+      - syntax
       - create
       - converge
+      - idempotence
       - verify
   debug: true
 ansible:
