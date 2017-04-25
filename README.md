@@ -1,5 +1,7 @@
 # Ansible Role: Varnish from Source
 
+[![Build Status](https://travis-ci.org/Deepakkothandan/ansible-role-varnish-src.svg?branch=master)](https://travis-ci.org/Deepakkothandan/ansible-role-varnish-src)
+
 The role is used to install [Varnish HTTP Cache](https://varnish-cache.org/) from source on RedHat/CentOS or Debian/Ubuntu Linux. Optionally, [varnish modules](https://github.com/varnish/varnish-modules) can also be installed.
 
 ## Note
