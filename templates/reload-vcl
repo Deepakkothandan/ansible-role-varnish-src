@@ -10,7 +10,7 @@ defaults=/etc/default/varnish
 secret=/etc/varnish/secret
 
 # Paths
-varnishadm=/usr/bin/varnishadm
+varnishadm=/usr/local/bin/varnishadm
 date=/bin/date
 tempfile=/bin/tempfile
 

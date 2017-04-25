@@ -15,5 +15,5 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     ("varnishtest"),
     ("varnishtop")
 ])
-def test_varnish_binaries_exists(Command, name):
-    assert Command.exists(name) is True
+def test_varnish_binaries_exists(host, name):
+    assert host.exists(name) is True

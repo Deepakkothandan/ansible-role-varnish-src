@@ -2,6 +2,10 @@
 dependency:
   name: galaxy
 molecule:
+  ignore_paths:
+    - .git
+    - .venv
+    - .molecule
   test:
     sequence:
       - destroy
@@ -20,5 +24,9 @@ docker:
       image_version: 16.04
       ansible_groups:
         - group1
+      command: '/sbin/init'
+      privileged: True
+      cap_add:
+        - ALL
 verifier:
   name: testinfra

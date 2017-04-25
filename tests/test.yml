@@ -1,4 +1,11 @@
 ---
 - hosts: all
+
+  pre_tasks:
+    - name: install dbus
+      apt:
+        name: dbus
+        state: present
+
   roles:
     - role: varnish-src
