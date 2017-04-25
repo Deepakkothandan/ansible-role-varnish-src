@@ -1,5 +1,6 @@
 sudo: required
-language: python
+env:
+  - distro: ubuntu1604
 services:
   - docker
 before_install:

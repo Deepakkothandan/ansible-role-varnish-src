@@ -8,4 +8,4 @@
         state: present
 
   roles:
-    - role: varnish-src
+    - role: ansible-role-varnish-src
